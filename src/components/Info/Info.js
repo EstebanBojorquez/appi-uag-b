@@ -1,15 +1,9 @@
 import React from 'react';
-
-// Take in a phrase and separate the third word in an array
-function createArrayFromPhrase(phrase) {
-  const splitPhrase = phrase.split(' ');
-  const thirdWord = splitPhrase.pop();
-  return [splitPhrase.join(' '), thirdWord];
-}
+import { Link } from 'react-router-dom';
 
 const InfoSection = props => (
   <section className={`bx--row ${props.className} info-section`}>
-    <div className="bx--col-md-8 bx--col-lg-4 bx--col-xlg-3">
+    <div className="bx--col-md-8 bx--col-lg-4">
       <h3 className="info-section__heading">{props.heading}</h3>
     </div>
     {props.children}
@@ -17,16 +11,19 @@ const InfoSection = props => (
 );
 
 const InfoCard = props => {
-  const splitHeading = createArrayFromPhrase(props.heading);
-
   return (
-    <div className="info-card bx--col-md-4 bx--col-lg-4 bx--col-xlg-3 bx--offset-xlg-1">
-      <h4 className="info-card__heading">
-        {`${splitHeading[0]} `}
-        <strong>{splitHeading[1]}</strong>
-      </h4>
-      <p className="info-card__body">{props.body}</p>
-      {props.icon}
+    <div
+      className={`info-card bx--col-md-4 bx--col-lg-4 ${
+        props.offset ? `bx--offset-lg-4` : null
+      }`}>
+      <Link to="/">
+        <h4 className="info-card__heading">
+          <strong>{props.prefix}</strong>
+          {` - ${props.heading}`}
+        </h4>
+        {props.body ? <p className="info-card__body">{props.body}</p> : null}
+        {props.icon}
+      </Link>
     </div>
   );
 };

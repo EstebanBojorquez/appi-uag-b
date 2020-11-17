@@ -1,28 +1,6 @@
 import React from 'react';
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  Button,
-  Tabs,
-  Tab,
-} from 'carbon-components-react';
+import { Breadcrumb, BreadcrumbItem } from 'carbon-components-react';
 import { InfoSection, InfoCard } from '../../components/Info';
-import Globe32 from '@carbon/icons-react/lib/globe/32';
-import PersonFavorite32 from '@carbon/icons-react/lib/person--favorite/32';
-import Application32 from '@carbon/icons-react/lib/application/32';
-
-const props = {
-  tabs: {
-    selected: 0,
-    triggerHref: '#',
-    role: 'navigation',
-  },
-  tab: {
-    href: '#',
-    role: 'presentation',
-    tabIndex: 0,
-  },
-};
 
 const LandingPage = () => {
   return (
@@ -31,81 +9,48 @@ const LandingPage = () => {
         <div className="bx--col-lg-16">
           <Breadcrumb noTrailingSlash aria-label="Page navigation">
             <BreadcrumbItem>
-              <a href="/">Getting started</a>
+              <a href="/">Inicio</a>
             </BreadcrumbItem>
           </Breadcrumb>
-          <h1 className="landing-page__heading">
-            Design &amp; build with Carbon
-          </h1>
+          <h1 className="landing-page__heading">Bienvenido</h1>
+        </div>
+        <div className="bx--col-lg-8 bx--col-md-4">
+          <p>
+            Bienvenido al sistema de Información de la Dirección de
+            Investigación de la Universidad Autónoma de Guadalajara.
+          </p>
+          <p>
+            Mediante esta herramienta, usted podrá dar seguimiento a sus
+            Proyectos de Investigación, Tesis, Publicaciones y/o Currículum
+            Vitae.
+          </p>
+          <p>
+            Esperamos que los datos que proporcionamos en el mismo le sean de
+            utilidad, cualquier duda, comentario o aclaración al correo
+            electrónico:{' '}
+            <a href="mailto:investigacion@edu.uag.mx">
+              investigacion@edu.uag.mx
+            </a>{' '}
+            o a la extensión 35811.
+          </p>
         </div>
       </div>
-      <div className="bx--row landing-page__r2">
-        <div className="bx--col bx--no-gutter">
-          <Tabs {...props.tabs} aria-label="Tab navigation">
-            <Tab {...props.tab} label="About">
-              <div className="bx--grid bx--grid--no-gutter bx--grid--full-width">
-                <div className="bx--row landing-page__tab-content">
-                  <div className="bx--col-md-4 bx--col-lg-7">
-                    <h2 className="landing-page__subheading">
-                      What is Carbon?
-                    </h2>
-                    <p className="landing-page__p">
-                      Carbon is IBM’s open-source design system for digital
-                      products and experiences. With the IBM Design Language as
-                      its foundation, the system consists of working code,
-                      design tools and resources, human interface guidelines,
-                      and a vibrant community of contributors.
-                    </p>
-                    <Button>Learn more</Button>
-                  </div>
-                  <div className="bx--col-md-4 bx--offset-lg-1 bx--col-lg-8">
-                    <img
-                      className="landing-page__illo"
-                      src={`${process.env.PUBLIC_URL}/tab-illo.png`}
-                      alt="Carbon illustration"
-                    />
-                  </div>
-                </div>
-              </div>
-            </Tab>
-            <Tab {...props.tab} label="Design">
-              <div className="bx--grid bx--grid--no-gutter bx--grid--full-width">
-                <div className="bx--row landing-page__tab-content">
-                  <div className="bx--col-lg-16">
-                    Rapidly build beautiful and accessible experiences. The
-                    Carbon kit contains all resources you need to get started.
-                  </div>
-                </div>
-              </div>
-            </Tab>
-            <Tab {...props.tab} label="Develop">
-              <div className="bx--grid bx--grid--no-gutter bx--grid--full-width">
-                <div className="bx--row landing-page__tab-content">
-                  <div className="bx--col-lg-16">
-                    Carbon provides styles and components in Vanilla, React,
-                    Angular, and Vue for anyone building on the web.
-                  </div>
-                </div>
-              </div>
-            </Tab>
-          </Tabs>
-        </div>
-      </div>
-      <InfoSection heading="The Principles" className="landing-page__r3">
+      <InfoSection heading="Secciones" className="landing-page__r3">
+        <InfoCard prefix="01" heading="Datos generales" />
+        <InfoCard prefix="02" heading="Formación Académica" />
+        <InfoCard prefix="03" heading="Formación de capital humano" />
         <InfoCard
-          heading="Carbon is Open"
-          body="It's a distributed effort, guided by the principles of the open-source movement. Carbon's users are also it's makers, and everyone is encouraged to contribute."
-          icon={<PersonFavorite32 />}
+          prefix="04"
+          heading="Producción científica, tecnológica y de innovación"
+          offset
         />
+        <InfoCard prefix="05" heading="Difusión y divulgación" />
+        <InfoCard prefix="06" heading="Vinculación" />
+        <InfoCard prefix="07" heading="Proyectos de investigación" offset />
+        <InfoCard prefix="08" heading="Lineas de investigación" />
         <InfoCard
-          heading="Carbon is Modular"
-          body="Carbon's modularity ensures maximum flexibility in execution. It's components are designed to work seamlessly with each other, in whichever combination suits the needs of the user."
-          icon={<Application32 />}
-        />
-        <InfoCard
-          heading="Carbon is Consistent"
-          body="Based on the comprehensive IBM Design Language, every element and component of Carbon was designed from the ground up to work elegantly together to ensure consistent, cohesive user experiences."
-          icon={<Globe32 />}
+          prefix="09"
+          heading="Participación en la vida institucional"
         />
       </InfoSection>
     </div>
