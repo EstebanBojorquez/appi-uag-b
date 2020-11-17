@@ -6,7 +6,7 @@
   "homepage": "http://EstebanBojorquez.github.io/appi-uag-b",
   "scripts": {
     "build": "react-scripts build",
-    "deploy": "rm -rf ./build && yarn build && cf push -f manifest.yml",
+    "deploy": "gh-pages -d build",
     "ci-check": "yarn format:diff",
     "clean": "yarn cache clean && yarn install",
     "eject": "react-scripts eject",
@@ -32,6 +32,7 @@
   "devDependencies": {
     "@commitlint/cli": "^7.5.2",
     "@commitlint/config-conventional": "^7.5.0",
+    "gh-pages": "^3.1.0",
     "lint-staged": "^8.1.5",
     "node-sass": "^4.12.0",
     "prettier": "^1.17.0"
